@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '320px'
+                    },
+                }
+            }
+        }
+  </script>
+  </head>
+  <title>CSS GRID w/tailwind</title>
+  <body class="box-border">
+    <div class="w-full pt-40 xl:px-52 px-4">
+        <div class="grid grid-cols-[240px_repeat(2,_1fr)] grid-rows-[1fr_1fr_50px] gap-2">
+            <div class="row-span-3 bg-red-500 text-white font-sans font-semibold text-5xl content-center p-4 rounded-lg  xs:max-md:text-2xl leading-2">
+                LET'S GET<br/>CODING!
+            </div>
+            <div class="xs:max-md:col-span-2 row-span-2 content-center px-2 rounded-lg bg-blue-500 text-white font-sans font-semibold text-5xl xs:max-md:text-sm">
+                WELCOME
+            </div>
+            <div class="xs:max-md:col-span-2 row-span-2 px-2 rounded-lg bg-teal-500 text-white font-sans font-semibold text-5xl content-center xs:max-md:text-sm">
+                Hello<br/>AGAIN
+            </div>
+            <div class="p-2 xs:max-md:max-h-10 content-center text-white bg-neutral-500 font-sans font-semibold text-4xl rounded-xl col-span-2 xs:max-md:col-span-3">
+                JOIN ME
+            </div>
+        </div>
+    </div>
+  </body>
+</head>
