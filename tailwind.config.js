@@ -1,5 +1,5 @@
 module.exports = {
-    content: ["**/**.html"],
+    content: ["**/**.html"], //just here for enabling auto-complete.
     theme: {
       extend: {},
     },

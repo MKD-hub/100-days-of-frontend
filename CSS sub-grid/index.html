@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    'body': 'poppins'
+                },
+                extend: {
+                    screens: {
+                        'xs': '320px'
+                    },
+                }
+            }
+        }
+  </script>
+  <style>
+    .box {
+        gird-row: span 3;
+    }
+  </style>
+  </head>
+  <title>CSS GRID w/tailwind</title>
+  <body class="box-border">
+    <div class="grid grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))] gap-4 font-body w-[90%] mx-auto my-16">
+        <div class="grid rounded-xl p-8 border shadow-md grid-rows-subgrid row-span-3">
+            <h2 class="text-4xl font-bold">TOYOTA AE86</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quaerat magni obcaecati voluptas voluptatibus accusamus perferendis in quas eligendi, porro vitae earum odio libero quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, hic!</p>
+            <img src="./pexels-car-1.jpeg">
+        </div>
+        <div class="grid rounded-xl p-8 border shadow-md grid-rows-subgrid row-span-3">
+            <h2 class="text-4xl font-bold">Pretty cool car!</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quaerat magni obcaecati voluptas voluptatibus accusamus perferendis in quas eligendi, porro vitae earum odio libero quo!</p>
+            <img src="./pexels-car-2.jpg">
+        </div>
+        <div class="grid rounded-xl p-8 border shadow-md grid-rows-subgrid row-span-3">
+            <h2 class="text-4xl font-bold">Hello there!</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quaerat magni obcaecati voluptas voluptatibus accusamus perferendis in quas eligendi, porro vitae earum odio libero quo! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur repellat quod possimus, perferendis eligendi iure ipsam quidem sequi amet, odio ducimus a!</p>
+            <img src="./pexels-car-1.jpeg">
+        </div>
+        <div class="grid rounded-xl p-8 border shadow-md grid-rows-subgrid row-span-3">
+            <h2 class="text-4xl font-bold">You like?</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quaerat magni obcaecati voluptas voluptatibus accusamus perferendis in quas eligendi, porro vitae earum odio libero quo!</p>
+            <img src="./pexels-car-2.jpg">
+        </div>
+    </div>
+  </body>
+</head>
