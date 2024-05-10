@@ -1,0 +1,114 @@
+<!-- Day one of trying to replicate card hover effect from getstark.co -->
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" defer>
+
+        
+        function resetTransform() {
+            let card = document.getElementById('card');
+            card.style.transform = `rotate3d(0, 0, 0, 0deg);`
+        }
+
+        function logEvent(e) {
+            let cardLeft, cardTop, cardRight, cardBottom = 0
+            let card = document.getElementById('card');
+            const cardBounds = card.getBoundingClientRect();
+            const cardCenterX =  cardBounds.left + cardBounds.width / 2; 
+            const cardCenterY = cardBounds.top + cardBounds.height / 2;
+
+            const dx = e.clientX - cardCenterX; // Distance from center in X-axis
+            const dy = e.clientY - cardCenterY; // Distance from center in Y-axis
+
+            let angle = Math.atan2(dy, dx) * 180 / Math.PI; // Radians to degrees
+
+            let widthAndHeightView = document.getElementById('widthAndHeightView')
+            let coors = document.getElementById('coors');
+            coors.innerHTML = "Coordinates: " + e.clientX + ", " + e.clientY
+
+            if (dx < 0 && dy < 0) {
+                angle += 45; // Bottom left quadrant
+            } else if (dx > 0 && dy < 0) {
+                angle += 45; // Bottom right quadrant
+            }
+
+            const maxRotationAngle = 30; // Adjust as desired
+
+            let adjustedAngle = Math.min(Math.abs(angle), maxRotationAngle);
+            adjustedAngle = Math.sign(angle) * adjustedAngle; 
+
+            cardLeft = e.clientX - cardBounds.left;
+            // cardTop = (e.clientY - cardBounds.top) < 0 ? 0 : e.clientY - cardBounds.top;
+            // cardRight = (cardBounds.right - e.clientX) < 0 ? 0 : cardBounds.right - e.clientX;
+            // cardBottom = (cardBounds.bottom - e.clientY) < 0 ? 0 : cardBounds.bottom - e.clientY;
+             
+            // widthAndHeightView.innerHTML = " LEFT: " + cardLeft + " TOP: " + cardTop + " RIGHT: " + cardRight + " Bottom: "  + cardBottom;
+            
+            if ( cardLeft < cardCenterX ) {
+                card.style.transform = `rotateY(-${adjustedAngle}deg)`
+            }
+            else {
+                card.style.transform = `rotateY(${adjustedAngle + 1}deg)`
+            }
+            // card.style.transform = `rotateX(${adjustedAngle}deg)`
+            card.style.transition = "0.5s"
+        }
+  
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    'body': 'poppins'
+                },
+                extend: {
+                    screens: {
+                        'xs': '320px'
+                    },
+                }
+            }
+        }
+  </script>
+  <style>
+    #card {
+        /* Apply perspective for depth illusion */
+        perspective: 1000px; /* Adjust as desired for depth effect */
+        /* Set transform style to preserve 3D space */
+        transform-style: preserve-3d;
+    }
+  </style>
+  </head>
+  <title>Fancy CSS card</title>
+
+  <body class="box-border">
+    <div class="flex flex-col w-[90%] items-center my-10">
+        <div class="border-2 p-8 items-center grid grid-cols-2 max-w-[360px] gap-4 border-black shadow-xl mb-4" id="card" onmouseover="logEvent(event)" onmouseout="resetTransform()" >
+            <div class="col-span-2 border-2 p-3">
+                <h3 class="text-3xl font-bold pb-4">How to summon demons!</h3>
+                <p class="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum architecto dicta, a numquam alias, reiciendis obcaecati quod recusandae sequi porro atque reprehenderit, dolorem odio molestias nihil nulla ut aut? Ratione?</p>
+            </div>
+            
+            <div class="p-1 col-span-2">
+                <button class="text-center bg-black text-lg text-white font-semibold p-2 rounded-3xl w-full">
+                    SUMMON!!!
+                </button>
+            </div>
+        </div>
+
+        <p class="text-4xl font-bold" id="coors">
+        
+        </p>
+
+        <p class="text-2xl font-semibold text-neutral-500" id="widthAndHeightView">
+
+        </p>
+    </div>
+  </body>
+
+</html>
