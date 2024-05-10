@@ -12,7 +12,7 @@
         
         function resetTransform() {
             let card = document.getElementById('card');
-            card.style.transform = `rotateY(0deg)`
+            card.style.transform = `rotateY(0deg) rotateX(0deg)`
             card.style.transition = "0.5s"
         }
 
@@ -40,22 +40,24 @@
 
             const maxRotationAngle = 15; // Adjust as desired
 
-            let adjustedAngle = Math.min(Math.abs(angle), maxRotationAngle);
+            let adjustedAngle = Math.min(Math.abs(angle), maxRotationAngle); // clamp to 15 deg
             adjustedAngle = Math.sign(angle) * adjustedAngle; 
 
-            // cardLeft = e.clientX - cardBounds.left;
-            // cardTop = (e.clientY - cardBounds.top) < 0 ? 0 : e.clientY - cardBounds.top;
-            // cardRight = (cardBounds.right - e.clientX) < 0 ? 0 : cardBounds.right - e.clientX;
-            // cardBottom = (cardBounds.bottom - e.clientY) < 0 ? 0 : cardBounds.bottom - e.clientY;
-             
-            // widthAndHeightView.innerHTML = " LEFT: " + cardLeft + " TOP: " + cardTop + " RIGHT: " + cardRight + " Bottom: "  + cardBottom;
             
-            if ( e.clientX < cardCenterX ) {
-                card.style.transform = `rotateY(-${adjustedAngle}deg)`
+            if ( dx < 0 && dy < 0 ) {
+                card.style.transform = `rotateY(-${adjustedAngle}deg) rotateX(${adjustedAngle}deg)`
+            }
+            else if ( dx > 0 && dy < 0 ) {
+                card.style.transform = `rotateY(${adjustedAngle}deg) rotateX(${20}deg)`
+            }
+            else if ( dx < 0 && dy > 0 ) {
+                card.style.transform = `rotateY(${adjustedAngle}deg) rotateX(${-20}deg)`
             }
             else {
-                card.style.transform = `rotateY(${adjustedAngle}deg)`
+                card.style.transform = `rotateY(-${adjustedAngle}deg) rotateX(${-20}deg)`
             }
+
+
             // card.style.transform = `rotateX(${adjustedAngle}deg)`
             card.style.transition = "0.5s"
         }
