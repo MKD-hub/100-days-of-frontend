@@ -34,16 +34,16 @@
             
 
             
-            if ( dx < 0 && dy < 0) {
+            if ( dx < 0 && dy < 0) { // top left quadrant
                 card.style.transform = `rotateY(${-10}deg) rotateX(${20}deg)`
             }
-            else if ( dx > 0 && dy < 0 ) {
+            else if ( dx > 0 && dy < 0 ) { // top right quadrant
                 card.style.transform = `rotateY(${10}deg) rotateX(${20}deg)`
             }
-            else if ( dx < 0 && dy > 0 ) {
+            else if ( dx < 0 && dy > 0 ) { // bottom left quadrant
                 card.style.transform = `rotateY(${20}deg) rotateX(${-20}deg)`
             }
-            else {
+            else { // bottom right quadrant
                 card.style.transform = `rotateY(${-20}deg) rotateX(${-20}deg)`
             }
 
