@@ -26,35 +26,25 @@
             const dx = e.clientX - cardCenterX; // Distance from center in X-axis
             const dy = e.clientY - cardCenterY; // Distance from center in Y-axis
 
-            let angle = Math.atan2(dy, dx) * 180 / Math.PI; // Radians to degrees
 
             let widthAndHeightView = document.getElementById('widthAndHeightView')
             let coors = document.getElementById('coors');
             coors.innerHTML = "Coordinates: " + e.clientX + ", " + e.clientY
 
-            if (dx < 0 && dy < 0) {
-                angle += 45; // Bottom left quadrant
-            } else if (dx > 0 && dy < 0) {
-                angle += 45; // Bottom right quadrant
-            }
-
-            const maxRotationAngle = 15; // Adjust as desired
-
-            let adjustedAngle = Math.min(Math.abs(angle), maxRotationAngle); // clamp to 15 deg
-            adjustedAngle = Math.sign(angle) * adjustedAngle; 
+            
 
             
-            if ( dx < 0 && dy < 0 ) {
-                card.style.transform = `rotateY(-${adjustedAngle}deg) rotateX(${adjustedAngle}deg)`
+            if ( dx < 0 && dy < 0) {
+                card.style.transform = `rotateY(${-10}deg) rotateX(${20}deg)`
             }
             else if ( dx > 0 && dy < 0 ) {
-                card.style.transform = `rotateY(${adjustedAngle}deg) rotateX(${20}deg)`
+                card.style.transform = `rotateY(${10}deg) rotateX(${20}deg)`
             }
             else if ( dx < 0 && dy > 0 ) {
-                card.style.transform = `rotateY(${adjustedAngle}deg) rotateX(${-20}deg)`
+                card.style.transform = `rotateY(${20}deg) rotateX(${-20}deg)`
             }
             else {
-                card.style.transform = `rotateY(-${adjustedAngle}deg) rotateX(${-20}deg)`
+                card.style.transform = `rotateY(${-20}deg) rotateX(${-20}deg)`
             }
 
 
