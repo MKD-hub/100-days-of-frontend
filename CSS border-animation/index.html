@@ -1,0 +1,44 @@
+<!-- Day one of trying to replicate the patterned borders from canalstreet.market, unsuccessfull so far. -->
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    'body': 'poppins'
+                },
+                extend: {
+                    screens: {
+                        'xs': '320px'
+                    },
+                }
+            }
+        }
+  </script>
+  <style>
+    .row {
+        padding: 60px;
+    background-image: repeating-linear-gradient(-74deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 0, transparent 4px), repeating-linear-gradient(-74deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2) 1px, transparent 0, transparent 4px);
+    background-position: 0 0, 0 100%;
+    background-size: 100% 12px, 100% 12px;
+    animation: none;
+    }
+  </style>
+  </head>   
+  <title>Fancy Border with animation</title>
+
+  <body class="box-border">
+    <div class="block w-[90%] px-8 text-center">
+        <div class="row">
+            <h3>Hello</h3>
+        </div>
+    </div>
+  </body>
+
+</html>
